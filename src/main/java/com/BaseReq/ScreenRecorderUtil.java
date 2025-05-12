@@ -76,6 +76,11 @@ public class ScreenRecorderUtil extends ScreenRecorder {
 
 		// "_");
 
+			if (GraphicsEnvironment.isHeadless() || System.getenv("DISABLE_SCREEN_RECORDING") != null) {
+			System.out.println("Skipping screen recording in headless/CI environment.");
+			return;
+		}
+
 		File file = new File("./src/main/resources");
 
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
