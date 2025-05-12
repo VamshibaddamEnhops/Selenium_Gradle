@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results total="2" passed="1" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-04-25T09:36:04Z" name="Default suite" finished-at="2025-04-25T09:37:28Z" duration-ms="84064">
+    <groups>
+      <group name="cucumber">
+        <method signature="runner.scenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner.runner@30f842ca]" name="scenario" class="TestRunner.runner"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2025-04-25T09:36:04Z" name="Default test" finished-at="2025-04-25T09:37:28Z" duration-ms="84064">
+      <class name="TestRunner.runner">
+        <test-method is-config="true" signature="setUpClass()[pri:0, instance:TestRunner.runner@30f842ca]" started-at="2025-04-25T09:36:04Z" name="setUpClass" finished-at="2025-04-25T09:36:04Z" duration-ms="707" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="scenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner.runner@30f842ca]" started-at="2025-04-25T09:36:04Z" name="scenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-04-25T09:37:08Z" duration-ms="64090" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate the Registration process"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Create Account and Register to OpenCart site"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- scenario -->
+        <test-method signature="scenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:TestRunner.runner@30f842ca]" started-at="2025-04-25T09:37:08Z" name="scenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-04-25T09:37:26Z" duration-ms="17763" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate existence of OpenCart Logo on top left corner"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Create Account and Register to OpenCart site"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at com.ObjectRepo.Registerelements.LogoValidate(Registerelements.java:170)
+	at StepDefinition.reg_opencartSteps.user_validates_logo_of_My_cart_Application(reg_opencartSteps.java:63)
+	at ✽.user validates logo of My cart Application(file:///C:/Users/EnhopsAzureAdmin/Desktop/Selenium_Cucumber_Gradle/src/test/resources/Features/Reg_Opencart.feature:20)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- scenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:TestRunner.runner@30f842ca]" started-at="2025-04-25T09:37:26Z" name="tearDownClass" finished-at="2025-04-25T09:37:28Z" duration-ms="1492" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- TestRunner.runner -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
