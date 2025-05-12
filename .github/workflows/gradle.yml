@@ -24,4 +24,4 @@ jobs:
       run: chmod +x gradlew
  
     - name: Run tests
-      run: ./gradlew clean test -Djava.awt.headless=false
+      run: ./gradlew clean test -Djava.awt.headless=true
