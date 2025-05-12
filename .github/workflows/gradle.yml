@@ -9,6 +9,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    env:
+      DISABLE_SCREEN_RECORDING: true
  
     steps:
     - name: Checkout code
