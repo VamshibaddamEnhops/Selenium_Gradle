@@ -102,12 +102,12 @@ public class hooks {
 
     }
 
-    @After(order = 1)
-    public void recording() throws IOException {
+    // @After(order = 1)
+    // public void recording() throws IOException {
 
-        File video = new File(p.getProperty("testRec"));
-        Allure.addAttachment("screenRecording.avi", "video/avi", Files.asByteSource(video).openStream(), "avi");
-    }
+    //     File video = new File(p.getProperty("testRec"));
+    //     Allure.addAttachment("screenRecording.avi", "video/avi", Files.asByteSource(video).openStream(), "avi");
+    // }
 
 
     APIClient client = TestTrailRunner.client;
