@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - name: Checkout code
@@ -25,4 +25,4 @@ jobs:
 
     - name: Run tests
       run: ./gradlew clean test --continue
-      continue-on-error: true  # Ensures that the build doesn't fail even if tests fail
+      continue-on-error: true
