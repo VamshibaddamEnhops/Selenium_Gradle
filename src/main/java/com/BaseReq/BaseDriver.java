@@ -46,6 +46,8 @@ public class BaseDriver {
 
 	public static void initbrowser(String Browser)
 	{
+		// Explicitly set the headless property to true
+                 System.setProperty("java.awt.headless", "true");
 		switch(Browser.toLowerCase()) { // Make sure the browser name is case insensitive
 			case "chrome":
 				WebDriverManager.chromedriver().setup();  // Automatically download ChromeDriver
