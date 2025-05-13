@@ -27,15 +27,5 @@ jobs:
       run: ./gradlew clean test --continue
       continue-on-error: true
 
-    - name: Print test results to logs
-      run: |
-          echo "==== JUnit Test Results ===="
-          if [ -d "build/test-results/test" ]; then
-            find build/test-results/test -name "*.xml" -exec cat {} +
-          else
-            echo "No test results found."
-          fi
-
-    - name: Mark build as success
-      run: echo "Workflow completed (even with test failures)."
+   
 
