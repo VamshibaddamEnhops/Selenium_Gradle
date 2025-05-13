@@ -75,6 +75,10 @@ public class ScreenRecorderUtil extends ScreenRecorder {
 		// String folderName=suiteName+"_"+d.toString().replace(":", "_").replace(" ",
 
 		// "_");
+		 if (GraphicsEnvironment.isHeadless()) {
+                    System.out.println("Skipping screen recording: headless mode detected.");
+                    return;
+                }
 
 		File file = new File("./src/main/resources");
 
@@ -109,6 +113,10 @@ public class ScreenRecorderUtil extends ScreenRecorder {
 	}
  
 	public static void stopRecord() throws Exception {
+                  if (GraphicsEnvironment.isHeadless()) {
+                      System.out.println("Skipping screen recorder stop: headless mode.");
+                      return;
+                 }
 
 		screenRecorder.stop();
 
