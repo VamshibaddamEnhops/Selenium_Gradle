@@ -2,13 +2,13 @@ name: Run Selenium Tests
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Or windows-latest if using Windows runner
 
     steps:
     - name: Checkout code
@@ -23,14 +23,29 @@ jobs:
     - name: Grant execute permission for Gradle
       run: chmod +x gradlew
 
+    - name: Cache Gradle dependencies (Force cache miss)
+      uses: actions/cache@v3
+      with:
+        path: ~/.gradle/caches
+        key: gradle-${{ runner.os }}-${{ hashFiles('**/*.gradle*') }}-v2  # Force cache miss by adding version
+        restore-keys: |
+          gradle-${{ runner.os }}-
+
     - name: Run tests
       run: ./gradlew clean test --continue
-      continue-on-error: true  # Ensures that the build doesn't fail even if tests fail
+      continue-on-error: true
 
     - name: Upload JUnit test results
-      uses: actions/upload-artifact@v2.3.0
+      uses: actions/upload-artifact@v2  # Ensure you're using the official stable version
       with:
         name: junit-test-results
         path: build/test-results/test/*.xml
 
-
+    - name: Publish test results
+      run: |
+        if [ -f build/test-results/test/*.xml ]; then
+          echo "Test Results: "
+          cat build/test-results/test/*.xml
+        else
+          echo "No test results found."
+        fi
