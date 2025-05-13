@@ -1,40 +1,28 @@
-name: Run Selenium Tests with JUnit Report
+name: Run Selenium Tests
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: Set up Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
+    - name: Set up Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
 
-      - name: Grant execute permission to Gradle
-        run: chmod +x gradlew
+    - name: Grant execute permission for Gradle
+      run: chmod +x gradlew
 
-      - name: Run Selenium/Gradle tests (continue on failure)
-        run: ./gradlew clean test --continue
-        continue-on-error: true
-
-      - name: Print test results to logs
-        run: |
-          echo "==== JUnit Test Results ===="
-          if [ -d "build/test-results/test" ]; then
-            find build/test-results/test -name "*.xml" -exec cat {} +
-          else
-            echo "No test results found."
-          fi
-
-      - name: Mark build as success
-        run: echo "Workflow completed (even with test failures)."
+    - name: Run tests
+      run: ./gradlew clean test --continue
+      continue-on-error: true  # Ensures that the build doesn't fail even if tests fail
