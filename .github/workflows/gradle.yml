@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
@@ -29,7 +29,7 @@ jobs:
 
     - name: Upload JUnit test results
       if: always()  # Ensures this step runs even if tests fail
-      uses: EnricoMi/publish-unit-test-result-action/windows@v2
+      uses: actions/upload-artifact@v2
       with:
         name: junit-test-results
         path: build/test-results/test/*.xml
