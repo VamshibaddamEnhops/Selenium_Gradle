@@ -28,10 +28,14 @@ jobs:
       continue-on-error: true
 
     - name: Print test results to logs
+      shell: pwsh
       run: |
-          echo "==== JUnit Test Results ===="
-          if [ -d "build/test-results/test" ]; then
-            find build/test-results/test -name "*.xml" -exec cat {} +
-          else
-            echo "No test results found."
-          fi
+       Write-Host "==== JUnit Test Results ===="
+       if (Test-Path "build/test-results/test") {
+        Get-ChildItem -Path "build/test-results/test" -Recurse -Filter *.xml | ForEach-Object {
+        Write-Host "`n-- File: $($_.FullName) --"
+        Get-Content $_.FullName
+       }
+       } else {
+       Write-Host "No test result
+
