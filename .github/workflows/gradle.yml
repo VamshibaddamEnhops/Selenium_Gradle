@@ -1,4 +1,4 @@
-name: Run Selenium Tests
+name: Run Selenium Tests with JUnit Report
 
 on:
   push:
@@ -8,44 +8,38 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest  # Or windows-latest if using Windows runner
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Set up Java
-      uses: actions/setup-java@v4
-      with:
-        distribution: 'temurin'
-        java-version: '17'
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
 
-    - name: Grant execute permission for Gradle
-      run: chmod +x gradlew
+      - name: Grant execute permission to Gradle
+        run: chmod +x gradlew
 
-    - name: Cache Gradle dependencies (Force cache miss)
-      uses: actions/cache@v3
-      with:
-        path: ~/.gradle/caches
-        key: gradle-${{ runner.os }}-${{ hashFiles('**/*.gradle*') }}-v2  # Force cache miss by adding version
-        restore-keys: |
-          gradle-${{ runner.os }}-
+      - name: Run Selenium/Gradle tests (continue on failure)
+        run: ./gradlew clean test --continue
+        continue-on-error: true
 
-    - name: Run tests
-      run: ./gradlew clean test --continue
-      continue-on-error: true
+      - name: Upload JUnit test results
+        uses: actions/upload-artifact@7c1efb523ea4d61cf0bb41f694f9c8ec2cd6b95c
+        with:
+          name: junit-test-results
+          path: build/test-results/test/*.xml
 
-    - name: Upload JUnit test results
-      uses: actions/upload-artifact@v2  # Ensure you're using the official stable version
-      with:
-        name: junit-test-results
-        path: build/test-results/test/*.xml
+      - name: Print test results (if available)
+        run: |
+          if compgen -G "build/test-results/test/*.xml" > /dev/null; then
+            cat build/test-results/test/*.xml
+          else
+            echo "No test result files found."
+          fi
 
-    - name: Publish test results
-      run: |
-        if [ -f build/test-results/test/*.xml ]; then
-          echo "Test Results: "
-          cat build/test-results/test/*.xml
-        else
-          echo "No test results found."
-        fi
+      - name: Mark build as success
+        run: echo "Workflow completed (even with test failures)."
