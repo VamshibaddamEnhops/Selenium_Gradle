@@ -28,7 +28,7 @@ jobs:
       continue-on-error: true  # Ensures that the build doesn't fail even if tests fail
 
     - name: Upload JUnit test results
-      uses: softprops/action-upload-artifact@v1  # Alternative artifact upload action
+      uses: actions/upload-artifact@v2.3.0
       with:
         name: junit-test-results
         path: build/test-results/test/*.xml
