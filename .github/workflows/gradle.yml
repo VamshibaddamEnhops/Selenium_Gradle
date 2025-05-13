@@ -27,18 +27,13 @@ jobs:
         run: ./gradlew clean test --continue
         continue-on-error: true
 
-      - name: Upload JUnit test results
-        uses: actions/upload-artifact@7c1efb523ea4d61cf0bb41f694f9c8ec2cd6b95c
-        with:
-          name: junit-test-results
-          path: build/test-results/test/*.xml
-
-      - name: Print test results (if available)
+      - name: Print test results to logs
         run: |
-          if compgen -G "build/test-results/test/*.xml" > /dev/null; then
-            cat build/test-results/test/*.xml
+          echo "==== JUnit Test Results ===="
+          if [ -d "build/test-results/test" ]; then
+            find build/test-results/test -name "*.xml" -exec cat {} +
           else
-            echo "No test result files found."
+            echo "No test results found."
           fi
 
       - name: Mark build as success
