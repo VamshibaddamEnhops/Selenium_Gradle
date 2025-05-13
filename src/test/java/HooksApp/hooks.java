@@ -56,10 +56,10 @@ public class hooks {
         }
     }
 
-    // @Before(order = 0)
-    // public void setup() throws Exception {
-    //     ScreenRecorderUtil.startRecord("setup");
-    // }
+    @Before(order = 0)
+    public void setup() throws Exception {
+        ScreenRecorderUtil.startRecord("setup");
+    }
 
 
     @Before(order = 1)
@@ -91,7 +91,7 @@ public class hooks {
             Allure.addAttachment(scenario.getName(), new ByteArrayInputStream(((TakesScreenshot) BaseDriver.driver).getScreenshotAs(OutputType.BYTES)));
             //Allure.link("https://stackoverflow.com/questions/50941193/how-to-add-link-on-test-case-failure-in-allure-report");
 
-         //   ScreenRecorderUtil.stopRecord();
+            ScreenRecorderUtil.stopRecord();
             Thread.sleep(8000);
         }
     }
@@ -102,12 +102,12 @@ public class hooks {
 
     }
 
-    // @After(order = 1)
-    // public void recording() throws IOException {
+    @After(order = 1)
+    public void recording() throws IOException {
 
-    //     File video = new File(p.getProperty("testRec"));
-    //     Allure.addAttachment("screenRecording.avi", "video/avi", Files.asByteSource(video).openStream(), "avi");
-    // }
+        File video = new File(p.getProperty("testRec"));
+        Allure.addAttachment("screenRecording.avi", "video/avi", Files.asByteSource(video).openStream(), "avi");
+    }
 
 
     APIClient client = TestTrailRunner.client;
