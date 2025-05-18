@@ -60,7 +60,7 @@ public class JiraAPI {
     
     public static String createJiraIssue(String defectSummary, String defectDescription) throws IOException, ParseException {
         // Set up the URL and connection for the JIRA API
-    	 String projectKey = "SCRUM";
+    	 String projectKey = "OSG";
         URL url = new URL(jiraURL+"issue");
         System.out.println("url :"+url);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
