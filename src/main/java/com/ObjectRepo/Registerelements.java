@@ -5,6 +5,7 @@ import java.awt.datatransfer.DataFlavor;
 import java.time.Duration;
 import java.util.Properties;
 
+import com.BaseReq.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -78,7 +79,8 @@ public class Registerelements {
 	private WebElement txtLink;
 
 	public String getTempemail() throws Exception {
-		driver.get("https://tempmail.plus/en/#!");
+		//driver.get("https://tempmail.plus/en/#!");
+		driver.get(ConfigReader.get("tempmailurl"));
 		Thread.sleep(3000);
 		
 		randomEmail.click();
@@ -92,7 +94,8 @@ public class Registerelements {
 		
 	}
 	public void getStoreSite() {
-		driver.get("http://20.204.41.135/studyopedia/");
+		//driver.get("http://20.204.41.135/studyopedia/");
+		driver.get(ConfigReader.get("OpenCartAPPURL"));
 	}
 	public void Do_register(String mail) throws Exception {
 		 wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -121,7 +124,8 @@ public class Registerelements {
 		
 	}
 	public void getTempEmailGeneartesite() throws InterruptedException {
-		driver.get("https://tempmail.plus/en/#!");
+		//driver.get("https://tempmail.plus/en/#!");
+		driver.get(ConfigReader.get("tempmailurl"));
 		Thread.sleep(5000);
 		driver.navigate().refresh();
 		Thread.sleep(5000);
@@ -147,7 +151,8 @@ public class Registerelements {
 	}
 	
 	public void getopencartStore() {
-		driver.get("http://20.204.41.135/studyopedia/index.php?route=account/login&language=en-gb");
+	//	driver.get("http://20.204.41.135/studyopedia/index.php?route=account/login&language=en-gb");
+		driver.get(ConfigReader.get("OpenCartLOGINURL"));
 	}
 	public void click_continue() {
 		JavascriptExecutor js = (JavascriptExecutor)driver;
