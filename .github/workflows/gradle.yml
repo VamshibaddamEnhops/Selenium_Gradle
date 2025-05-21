@@ -36,7 +36,7 @@ jobs:
       shell: bash  # Ensure this works on Windows
 
     - name: Run tests
-      run: ./gradlew clean test --continue
+      run: ./gradlew clean test --stacktrace --info --continue
       continue-on-error: true
 
 
