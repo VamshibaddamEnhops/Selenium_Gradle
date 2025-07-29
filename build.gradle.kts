@@ -39,6 +39,9 @@ dependencies {
     // TestNG for testing
   //  implementation("org.testng:testng:6.8.3")
 
+    implementation ("com.sun.mail:javax.mail:1.6.2")
+    implementation ("javax.activation:activation:1.1.1")
+
 }
 configurations.all {
     resolutionStrategy {
