@@ -10,6 +10,11 @@ import io.cucumber.testng.FeatureWrapper;
 import io.cucumber.testng.PickleWrapper;
 import io.cucumber.testng.TestNGCucumberRunner;
 
+import org.testng.annotations.Listeners;
+import com.utils.TestResultListener;
+
+@Listeners(TestResultListener.class)
+
 @CucumberOptions(features="src/test/resources/Features/Reg_Opencart.feature",
 glue={"StepDefinition","HooksApp"},
 plugin= {"pretty","io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
