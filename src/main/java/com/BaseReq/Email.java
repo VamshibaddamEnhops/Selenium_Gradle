@@ -91,7 +91,7 @@ public class Email {
             BodyPart messageBodyPart = new MimeBodyPart();
             String htmlBody =
                     "<html><body>" +
-                            "<h2>Automation Report For OpenCart Web Application</h2>" +
+                            "<h2>Automation Report For OpenCart Web Application -Selenium Cucumber Gradle GithubActions</h2>" +
 
                             "<h3>Machine Summary</h3>" +
                             "<table border='1' cellpadding='8' cellspacing='0' style='border-collapse: collapse; text-align:left;'>" +
