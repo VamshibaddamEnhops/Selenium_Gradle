@@ -227,7 +227,7 @@ public class Email {
         try {
             Properties props = new Properties();
             props.put("mail.smtp.starttls.enable", "true");
-            props.put("mail.smtp.host", host);
+             props.put("mail.smtp.host", "smtp.sendgrid.net");
             props.put("mail.smtp.port", "587");
             props.put("mail.smtp.auth", "true");
             props.setProperty("mail.smtp.ssl.protocols", "TLSv1.2");
