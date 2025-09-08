@@ -20,6 +20,8 @@ jobs:
       TEST_RUN_ID: ${{ secrets.TEST_RUN_ID }}
       TEST_RAIL_USERNAME: ${{ secrets.TEST_RAIL_USERNAME }}
       TEST_RAIL_PASSWORD: ${{ secrets.TEST_RAIL_PASSWORD }}
+      SENDGRID_AUTHUSER: apikey      
+      SENDGRID_APIKEY: ${{ secrets.SENDGRID_APIKEY }}
 
     steps:
     - name: Checkout code
