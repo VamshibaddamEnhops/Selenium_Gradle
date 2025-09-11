@@ -20,6 +20,8 @@ jobs:
       TEST_RUN_ID: ${{ secrets.TEST_RUN_ID }}
       TEST_RAIL_USERNAME: ${{ secrets.TEST_RAIL_USERNAME }}
       TEST_RAIL_PASSWORD: ${{ secrets.TEST_RAIL_PASSWORD }}
+      SMTP_AUTHUSER: ${{ secrets.SMTP_AUTHUSER }}
+      SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
      
     steps:
     - name: Checkout code
