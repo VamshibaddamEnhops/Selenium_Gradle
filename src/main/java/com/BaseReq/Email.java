@@ -123,7 +123,7 @@ public class Email {
                             "<td>" + String.format("%.2f", TestSummary.passPercentage) + "%</td>" +
                             "</tr></table><br>" +
 
-                            "<p style='font-style:italic;'>Note: This is confidential property of Enhops and should not be distributed outside the organization.</p>" +
+                            "<p style='font-style:italic;'>Note: This is confidential property of ProArch and should not be distributed outside the organization.</p>" +
                             "</body></html>";
 
             messageBodyPart.setContent(htmlBody, "text/html");
