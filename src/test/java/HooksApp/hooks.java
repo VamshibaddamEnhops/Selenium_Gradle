@@ -72,7 +72,7 @@ public class hooks {
     }
 
     @Before(order = 2)
-    public void getDriver() {
+    public void getDriver() throws Exception {
         BaseDriver.initbrowser(p.getProperty("browser"));
 //        String url = p.getProperty("url");
 //        BaseDriver.driver.get(url);
