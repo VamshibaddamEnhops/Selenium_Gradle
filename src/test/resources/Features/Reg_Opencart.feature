@@ -1,6 +1,6 @@
  @tag
 Feature: Create Account and Register to OpenCart site
-	@C9
+	@C48
   Scenario: Validate the Registration process
     Given user generate temperary email
     And user navigate to store site
@@ -14,7 +14,7 @@ Feature: Create Account and Register to OpenCart site
     And log out from the application and verify successful log out
 
 	
-	@C10
+	@C49
   Scenario: Validate existence of OpenCart Logo on top left corner
     Given user navigate to store site
     Then user validates logo of My cart Application
