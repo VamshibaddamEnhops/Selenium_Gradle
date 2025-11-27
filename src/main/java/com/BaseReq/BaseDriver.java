@@ -24,12 +24,12 @@ public class BaseDriver {
 		switch(Browser) {
 		case "chrome":
 			
-			String driverPath = System.getProperty("user.dir") + "/drivers/chromedriver.exe";
-			System.setProperty("webdriver.chrome.driver", driverPath);
-		    driver = new ChromeDriver();
+			// String driverPath = System.getProperty("user.dir") + "/drivers/chromedriver.exe";
+			// System.setProperty("webdriver.chrome.driver", driverPath);
+		 //    driver = new ChromeDriver();
 
-		//	WebDriverManager.chromedriver().setup();
-			
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
 
 			break;
 		case "edge":
