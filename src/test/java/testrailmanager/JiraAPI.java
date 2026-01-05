@@ -31,7 +31,7 @@ public class JiraAPI {
 	    private static String apiToken = ConfigReader.get("apiToken");
     
     public static void attachScreenshotToJira(String defectID, String filePath) throws IOException {
-    	String jiraurl = "https://proarchtesttrail-3.atlassian.net/rest/api/2/issue/" + defectID + "/attachments";
+    	String jiraurl = "https://proarch-team-9.atlassian.net/rest/api/2/issue/" + defectID + "/attachments";
         File file = new File(filePath);
         if (!file.exists()) {
             System.err.println("Screenshot file not found: " + filePath);
